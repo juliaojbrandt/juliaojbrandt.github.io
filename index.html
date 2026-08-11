@@ -4,22 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Julia Rakel — Artist & Sound Designer</title>
+  <title>Julia Rakel — Music & Sound</title>
 
   <meta
     name="description"
-    content="Julia Rakel — artist, songwriter and sound designer."
+    content="Julia Rakel — artist, songwriter, composer and sound designer based in Skåne, Sweden."
   >
 
   <style>
+
     :root {
-      --bg: #f3f0e9;
-      --text: #171717;
-      --muted: #77736b;
-      --line: #d6d1c7;
-      --accent: #171717;
-      --max-width: 1200px;
+      --background: #e9e6de;
+      --text: #171715;
+      --muted: #77746d;
+      --line: rgba(23, 23, 21, 0.18);
+      --white: #f5f3ed;
+      --max-width: 1380px;
     }
+
 
     * {
       box-sizing: border-box;
@@ -27,685 +29,934 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      background: var(--bg);
+      background: var(--background);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.5;
+      line-height: 1.45;
+      overflow-x: hidden;
     }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    .page {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 32px;
+
+    img {
+      display: block;
+      width: 100%;
     }
 
-    /* HEADER */
+
+    .page {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+
+    /* -------------------------
+       HEADER
+    ------------------------- */
+
 
     header {
+      height: 90px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 28px 0;
       border-bottom: 1px solid var(--line);
     }
 
+
     .logo {
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 600;
       letter-spacing: -0.04em;
     }
 
+
     nav {
       display: flex;
-      gap: 28px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    nav a {
-      transition: opacity 0.2s ease;
-    }
-
-    nav a:hover {
-      opacity: 0.45;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 78vh;
-      display: flex;
-      align-items: flex-end;
-      padding: 100px 0 70px;
-    }
-
-    .hero h1 {
-      font-size: clamp(72px, 13vw, 190px);
-      line-height: 0.82;
-      letter-spacing: -0.075em;
-      font-weight: 500;
-      max-width: 1000px;
-    }
-
-    .hero-meta {
-      margin-top: 42px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      max-width: 700px;
-      font-size: 15px;
-    }
-
-    .eyebrow {
+      gap: 30px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 10px;
     }
 
-    /* SECTIONS */
 
-    section {
-      padding: 110px 0;
-      border-top: 1px solid var(--line);
+    nav a {
+      position: relative;
     }
 
-    .section-heading {
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--text);
+      transition: width 0.3s ease;
+    }
+
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+
+    .hero {
+      min-height: calc(100vh - 90px);
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
-      margin-bottom: 70px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+      padding: 70px 0;
     }
 
-    .section-number {
-      font-size: 12px;
+
+    .hero-text {
+      align-self: end;
+      padding-bottom: 35px;
+    }
+
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       color: var(--muted);
+      margin-bottom: 30px;
     }
 
-    .section-title {
-      font-size: clamp(42px, 7vw, 90px);
-      line-height: 0.9;
-      letter-spacing: -0.06em;
+
+    .hero h1 {
+      font-size: clamp(82px, 14vw, 210px);
+      line-height: 0.77;
+      letter-spacing: -0.085em;
       font-weight: 500;
     }
 
-    /* MUSIC */
 
-    .music-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .music-item {
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      gap: 30px;
-      align-items: center;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .music-number {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .music-title {
-      font-size: 24px;
+    .hero-intro {
+      max-width: 520px;
+      margin-top: 55px;
+      font-size: 20px;
+      line-height: 1.15;
       letter-spacing: -0.025em;
     }
 
-    .music-description {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 14px;
+
+    .hero-image {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #d8d4ca;
     }
 
-    .listen {
-      border: 1px solid var(--text);
-      padding: 10px 17px;
-      border-radius: 100px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: all 0.2s ease;
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
     }
 
-    .listen:hover {
-      background: var(--text);
-      color: var(--bg);
-    }
 
-    /* SOUND DESIGN */
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .work {
-      background: var(--bg);
-      padding: 35px;
-      min-height: 260px;
+    .image-placeholder {
+      height: 100%;
+      min-height: 500px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .work h3 {
-      font-size: 28px;
-      font-weight: 500;
-      letter-spacing: -0.04em;
-    }
-
-    .work p {
-      max-width: 500px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    .work-link {
-      margin-top: 30px;
       font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
     }
 
-    /* ABOUT */
 
-    .about-grid {
+    /* -------------------------
+       GENERAL SECTIONS
+    ------------------------- */
+
+
+    section {
+      border-top: 1px solid var(--line);
+      padding: 120px 0;
+    }
+
+
+    .section-header {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
+      grid-template-columns: 0.35fr 1fr;
+      gap: 50px;
+      margin-bottom: 85px;
     }
+
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+
+    .section-title {
+      font-size: clamp(55px, 8vw, 115px);
+      line-height: 0.82;
+      letter-spacing: -0.075em;
+      font-weight: 500;
+    }
+
+
+    /* -------------------------
+       PROJECTS
+    ------------------------- */
+
+
+    .projects {
+      border-top: 1px solid var(--line);
+    }
+
+
+    .project {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr 150px;
+      gap: 30px;
+      align-items: start;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding 0.3s ease;
+    }
+
+
+    .project:hover {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+
+    .project-number {
+      color: var(--muted);
+      font-size: 11px;
+      padding-top: 5px;
+    }
+
+
+    .project-title {
+      font-size: clamp(25px, 3vw, 40px);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+    }
+
+
+    .project-type {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+
+    .project-description {
+      font-size: 15px;
+      max-width: 450px;
+      line-height: 1.35;
+    }
+
+
+    .project-link {
+      justify-self: end;
+      border: 1px solid var(--text);
+      padding: 11px 16px;
+      border-radius: 100px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      transition:
+        background 0.25s ease,
+        color 0.25s ease;
+    }
+
+
+    .project-link:hover {
+      background: var(--text);
+      color: var(--background);
+    }
+
+
+    /* -------------------------
+       ABOUT
+    ------------------------- */
+
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.35fr 1fr;
+      gap: 50px;
+    }
+
 
     .about-text {
-      font-size: clamp(25px, 3vw, 42px);
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      max-width: 800px;
+      max-width: 900px;
+      font-size: clamp(30px, 4vw, 58px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
     }
 
-    /* CONTACT */
+
+    .about-small {
+      margin-top: 60px;
+      max-width: 600px;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+
+    /* -------------------------
+       CONTACT
+    ------------------------- */
+
 
     .contact {
-      min-height: 70vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .contact-email {
-      font-size: clamp(40px, 8vw, 110px);
-      line-height: 0.9;
-      letter-spacing: -0.065em;
-      word-break: break-word;
+
+    .contact-title {
+      font-size: clamp(70px, 13vw, 190px);
+      line-height: 0.78;
+      letter-spacing: -0.08em;
+      font-weight: 500;
     }
+
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 70px;
+      font-size: clamp(25px, 4vw, 55px);
+      letter-spacing: -0.04em;
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 7px;
+    }
+
 
     .socials {
       display: flex;
       gap: 25px;
       flex-wrap: wrap;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    footer {
-      padding: 25px 0 40px;
-      display: flex;
-      justify-content: space-between;
-      color: var(--muted);
+      margin-top: 90px;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
     }
 
-    /* MOBILE */
 
-    @media (max-width: 700px) {
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0 35px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+
+    /* -------------------------
+       MOBILE
+    ------------------------- */
+
+
+    @media (max-width: 800px) {
 
       .page {
-        padding: 0 20px;
+        width: min(100% - 30px, var(--max-width));
       }
+
 
       header {
-        align-items: flex-start;
+        height: 75px;
       }
+
 
       nav {
-        gap: 14px;
-        font-size: 10px;
+        gap: 13px;
+        font-size: 9px;
       }
+
 
       .hero {
-        min-height: 70vh;
-        padding: 80px 0 50px;
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 65px 0 80px;
       }
+
+
+      .hero-text {
+        padding-bottom: 0;
+      }
+
 
       .hero h1 {
-        font-size: 22vw;
+        font-size: 25vw;
       }
 
-      .hero-meta {
-        grid-template-columns: 1fr;
-        gap: 20px;
+
+      .hero-intro {
+        font-size: 18px;
+        margin-top: 40px;
       }
+
+
+      .hero-image {
+        aspect-ratio: 4 / 5;
+      }
+
 
       section {
-        padding: 75px 0;
+        padding: 80px 0;
       }
 
-      .section-heading {
+
+      .section-header {
         grid-template-columns: 1fr;
         gap: 20px;
-        margin-bottom: 45px;
+        margin-bottom: 55px;
       }
 
-      .music-item {
+
+      .project {
         grid-template-columns: 35px 1fr;
         gap: 15px;
+        padding: 30px 0;
       }
 
-      .listen {
+
+      .project-description {
+        grid-column: 2;
+        margin-top: 5px;
+      }
+
+
+      .project-link {
         grid-column: 2;
         justify-self: start;
       }
 
-      .work-grid {
+
+      .about {
         grid-template-columns: 1fr;
+        gap: 30px;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
+
+      .about-text {
+        font-size: 31px;
       }
 
-      .contact-email {
-        font-size: 13vw;
+
+      .contact-title {
+        font-size: 24vw;
       }
+
 
       footer {
         flex-direction: column;
         gap: 10px;
       }
+
     }
+
   </style>
 </head>
 
 
 <body>
 
-  <div class="page">
-
-    <!-- HEADER -->
-
-    <header>
-      <a href="#" class="logo">Julia Rakel</a>
-
-      <nav>
-        <a href="#music">Music</a>
-        <a href="#sound">Sound</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<div class="page">
 
 
-    <!-- HERO -->
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-    <main>
 
-      <section class="hero" style="border-top: none;">
+  <header>
 
-        <div>
+    <a href="#" class="logo">
+      Julia Rakel
+    </a>
 
-          <div class="eyebrow">
-            Artist · Songwriter · Sound Designer
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+
+  <main>
+
+    <section class="hero" style="border-top: none;">
+
+      <div class="hero-text">
+
+        <div class="eyebrow">
+          Artist · Songwriter · Composer · Sound Designer
+        </div>
+
+        <h1>
+          Julia<br>
+          Rakel
+        </h1>
+
+        <p class="hero-intro">
+          Music, sound and storytelling —
+          from songs and stage to animation,
+          audio walks and radio.
+        </p>
+
+      </div>
+
+
+      <div class="hero-image">
+
+        <!--
+          LÄGG DIN BILD I GITHUB MED NAMNET:
+
+          julia-rakel.jpg
+
+          OCH TA BORT DIVEN NEDAN.
+        -->
+
+        <div class="image-placeholder">
+          Your image here
+        </div>
+
+        <!--
+
+        NÄR BILDEN ÄR UPPLADDAD:
+
+        <img
+          src="julia-rakel.jpg"
+          alt="Julia Rakel"
+        >
+
+        -->
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WORK
+    ========================== -->
+
+
+    <section id="work">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          01 / Selected work
+        </div>
+
+        <h2 class="section-title">
+          Music &<br>
+          sound
+        </h2>
+
+      </div>
+
+
+      <div class="projects">
+
+
+        <!-- PROJECT 01 -->
+
+
+        <article class="project">
+
+          <div class="project-number">
+            01
           </div>
 
-          <h1>
-            Julia<br>
-            Rakel
-          </h1>
+          <div>
 
-          <div class="hero-meta">
-
-            <p>
-              Artist and songwriter based in Skåne, Sweden.
-            </p>
-
-            <p>
-              Music, sound design and other things
-              that live somewhere between words and sound.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- MUSIC -->
-
-      <section id="music">
-
-        <div class="section-heading">
-
-          <div class="section-number">
-            01 / Music
-          </div>
-
-          <h2 class="section-title">
-            Music
-          </h2>
-
-        </div>
-
-
-        <div class="music-list">
-
-          <!-- COPY THIS BLOCK FOR MORE MUSIC -->
-
-          <article class="music-item">
-
-            <div class="music-number">
-              01
+            <div class="project-title">
+              Mottagning för<br>
+              magiska besvär
             </div>
 
-            <div>
-              <div class="music-title">
-                Song title
-              </div>
-
-              <div class="music-description">
-                Short description of the song or project.
-              </div>
+            <div class="project-type">
+              Music & cue lab programming
             </div>
-
-            <a
-              class="listen"
-              href="#"
-              target="_blank"
-              rel="noopener"
-            >
-              Listen
-            </a>
-
-          </article>
-
-
-          <article class="music-item">
-
-            <div class="music-number">
-              02
-            </div>
-
-            <div>
-              <div class="music-title">
-                Song title
-              </div>
-
-              <div class="music-description">
-                Short description of the song or project.
-              </div>
-            </div>
-
-            <a
-              class="listen"
-              href="#"
-              target="_blank"
-              rel="noopener"
-            >
-              Listen
-            </a>
-
-          </article>
-
-
-          <article class="music-item">
-
-            <div class="music-number">
-              03
-            </div>
-
-            <div>
-              <div class="music-title">
-                Song title
-              </div>
-
-              <div class="music-description">
-                Short description of the song or project.
-              </div>
-            </div>
-
-            <a
-              class="listen"
-              href="#"
-              target="_blank"
-              rel="noopener"
-            >
-              Listen
-            </a>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
-      <!-- SOUND DESIGN -->
-
-      <section id="sound">
-
-        <div class="section-heading">
-
-          <div class="section-number">
-            02 / Sound
-          </div>
-
-          <h2 class="section-title">
-            Sound design
-          </h2>
-
-        </div>
-
-
-        <div class="work-grid">
-
-          <article class="work">
-
-            <div>
-              <h3>
-                Project title
-              </h3>
-
-              <p>
-                Short description of the sound design work.
-              </p>
-            </div>
-
-            <a class="work-link" href="#" target="_blank">
-              View project →
-            </a>
-
-          </article>
-
-
-          <article class="work">
-
-            <div>
-              <h3>
-                Project title
-              </h3>
-
-              <p>
-                Short description of the sound design work.
-              </p>
-            </div>
-
-            <a class="work-link" href="#" target="_blank">
-              View project →
-            </a>
-
-          </article>
-
-
-          <article class="work">
-
-            <div>
-              <h3>
-                Project title
-              </h3>
-
-              <p>
-                Short description of the sound design work.
-              </p>
-            </div>
-
-            <a class="work-link" href="#" target="_blank">
-              View project →
-            </a>
-
-          </article>
-
-
-          <article class="work">
-
-            <div>
-              <h3>
-                Project title
-              </h3>
-
-              <p>
-                Short description of the sound design work.
-              </p>
-            </div>
-
-            <a class="work-link" href="#" target="_blank">
-              View project →
-            </a>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
-      <!-- ABOUT -->
-
-      <section id="about">
-
-        <div class="section-heading">
-
-          <div class="section-number">
-            03 / About
-          </div>
-
-          <h2 class="section-title">
-            About
-          </h2>
-
-        </div>
-
-
-        <div class="about-grid">
-
-          <div></div>
-
-          <div class="about-text">
-
-            Julia Rakel is an artist, songwriter and sound designer
-            based in Skåne, Sweden.
-
-            <br><br>
-
-            <!-- REPLACE THIS WITH YOUR REAL BIO -->
-
-            Her work moves between music, sound and storytelling.
 
           </div>
 
-        </div>
-
-      </section>
-
-
-      <!-- CONTACT -->
-
-      <section id="contact" class="contact">
-
-        <div>
-
-          <div class="section-number">
-            04 / Contact
+          <div class="project-description">
+            Music and cue lab programming for
+            <em>Mottagning för magiska besvär</em>,
+            produced by CRUSH.
           </div>
-
-        </div>
-
-
-        <div>
-
-          <!-- REPLACE EMAIL -->
 
           <a
-            class="contact-email"
-            href="mailto:YOUR-EMAIL-HERE"
+            class="project-link"
+            href="https://soundcloud.com/juliarakel/sets/mottagning-for-magiska-besvar-ett-urval/s-y7PwE53Rm15?si=5bce8cfc550f418e848287d2922e359b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+            target="_blank"
+            rel="noopener"
           >
-            Get in touch
+            Listen ↗
           </a>
 
+        </article>
+
+
+
+        <!-- PROJECT 02 -->
+
+
+        <article class="project">
+
+          <div class="project-number">
+            02
+          </div>
+
+          <div>
+
+            <div class="project-title">
+              Tears of<br>
+              Malmö
+            </div>
+
+            <div class="project-type">
+              Original music
+            </div>
+
+          </div>
+
+          <div class="project-description">
+            Original music for <em>Tears of Malmö</em>,
+            an audiowalk produced by Malmö Stadsteater
+            among others.
+          </div>
+
+          <a
+            class="project-link"
+            href="https://soundcloud.com/juliarakel/sets/tears-of-malmo-ett-urval/s-jnJvF4EgYc4?si=38e094b3d8e1499ea0bcfdffe74dc942&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+            target="_blank"
+            rel="noopener"
+          >
+            Listen ↗
+          </a>
+
+        </article>
+
+
+
+        <!-- PROJECT 03 -->
+
+
+        <article class="project">
+
+          <div class="project-number">
+            03
+          </div>
+
+          <div>
+
+            <div class="project-title">
+              Drifters
+            </div>
+
+            <div class="project-type">
+              Music & sound design
+            </div>
+
+          </div>
+
+          <div class="project-description">
+            Music and sound design for
+            <em>Drifters</em>, an animated short series
+            produced by FX Network.
+          </div>
+
+          <a
+            class="project-link"
+            href="https://soundcloud.com/juliarakel/drifters-theme/s-i000gCiifx7?si=8a51963edff848c9a0ca47a2ad93e94e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+            target="_blank"
+            rel="noopener"
+          >
+            Listen ↗
+          </a>
+
+        </article>
+
+
+
+        <!-- PROJECT 04 -->
+
+
+        <article class="project">
+
+          <div class="project-number">
+            04
+          </div>
+
+          <div>
+
+            <div class="project-title">
+              Black Death
+            </div>
+
+            <div class="project-type">
+              Sound design
+            </div>
+
+          </div>
+
+          <div class="project-description">
+            Sound design for <em>Black Death</em>,
+            an animated short series produced by
+            FX Network.
+          </div>
+
+          <a
+            class="project-link"
+            href="https://www.youtube.com/watch?v=qrtBWscxtEM"
+            target="_blank"
+            rel="noopener"
+          >
+            Watch ↗
+          </a>
+
+        </article>
+
+
+
+        <!-- PROJECT 05 -->
+
+
+        <article class="project">
+
+          <div class="project-number">
+            05
+          </div>
+
+          <div>
+
+            <div class="project-title">
+              P3 Historia
+            </div>
+
+            <div class="project-type">
+              Music & sound design
+            </div>
+
+          </div>
+
+          <div class="project-description">
+            Music and sound design for
+            <em>P3 Historia</em>, produced by Munck Studios
+            for Sveriges Radio.
+          </div>
+
+          <a
+            class="project-link"
+            href="https://open.spotify.com/episode/1fEFfepe3lWyL3wF3tKtB9"
+            target="_blank"
+            rel="noopener"
+          >
+            Listen ↗
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+
+    <section id="about">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          02 / About
         </div>
+
+        <h2 class="section-title">
+          About
+        </h2>
+
+      </div>
+
+
+      <div class="about">
+
+        <div></div>
+
+        <div>
+
+          <p class="about-text">
+            Julia Rakel is an artist,
+            songwriter, composer and
+            sound designer based in
+            Skåne, Sweden.
+          </p>
+
+
+          <p class="about-small">
+            <!--
+              HÄR KOMMER VI SENARE SKRIVA DIN RIKTIGA BIO.
+              JAG HAR MEDVETET INTE HITTAT PÅ MER HÄR ÄN
+              DET DU REDAN HAR BERÄTTAT.
+            -->
+
+            Her work moves between music,
+            sound design and storytelling,
+            with a particular interest in
+            the meeting point between sound,
+            language and image.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+
+    <section id="contact" class="contact">
+
+      <div>
+
+        <div class="section-label">
+          03 / Contact
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="contact-title">
+          Let's<br>
+          make<br>
+          sound.
+        </div>
+
+
+        <!--
+          BYT UT DIN MAILADRESS HÄR
+        -->
+
+        <a
+          class="contact-email"
+          href="mailto:YOUR-EMAIL-HERE"
+        >
+          YOUR-EMAIL-HERE
+        </a>
 
 
         <div class="socials">
 
-          <!-- REPLACE LINKS -->
+          <!--
+            BYT UT # MOT DINA RIKTIGA LÄNKAR
+          -->
 
-          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">
+            Instagram ↗
+          </a>
 
-          <a href="#" target="_blank">SoundCloud</a>
+          <a href="#" target="_blank">
+            SoundCloud ↗
+          </a>
 
-          <a href="#" target="_blank">Vimeo</a>
+          <a href="#" target="_blank">
+            LinkedIn ↗
+          </a>
 
         </div>
 
-      </section>
+      </div>
 
-    </main>
+    </section>
 
 
-    <!-- FOOTER -->
+  </main>
 
-    <footer>
 
-      <span>
-        © Julia Rakel
-      </span>
 
-      <span>
-        Skåne, Sweden
-      </span>
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-    </footer>
 
-  </div>
+  <footer>
+
+    <span>
+      © Julia Rakel
+    </span>
+
+    <span>
+      Skåne, Sweden
+    </span>
+
+  </footer>
+
+
+</div>
+
 
 </body>
 </html>
