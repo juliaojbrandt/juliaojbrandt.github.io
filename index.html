@@ -516,7 +516,13 @@
 
       padding-bottom: 4px;
 
+      border: none;
       border-bottom: 1px solid var(--text);
+
+      background: transparent;
+      color: var(--text);
+
+      cursor: pointer;
 
       font-size: clamp(
         22px,
@@ -528,23 +534,8 @@
     }
 
 
-    .socials {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-
-      margin-top: 35px;
-
-      color: var(--muted);
-
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-
-    .socials a:hover {
-      color: var(--text);
+    .contact-email:hover {
+      opacity: 0.6;
     }
 
 
@@ -1096,13 +1087,13 @@
 
 
           <p class="about-large">
-            Julia Rakel.
+            Julia Rakel is a musician and sound designer.
           </p>
 
 
           <p class="about-small">
-            She is an musician, songwriter, composer and sound designer,
-            originally from Umeå and now based in Skåne in southern Sweden.
+            She is an artist, songwriter, composer and sound designer,
+            originally from Umeå and now based in Vollsjö in southern Sweden.
             <br><br>
             Alongside her own music, she works with music and sound for theatre,
             animation, radio and other projects. Previous work includes projects
@@ -1140,44 +1131,21 @@
 
         <h2 class="contact-title">
           Let's make<br>
-          something.<br>
+          something<br>
+          sound.
         </h2>
 
 
 
         <div class="contact-bottom">
 
-
-          <a
+          <button
             class="contact-email"
-            href="mailto:YOUR-EMAIL-HERE"
+            id="email-button"
+            type="button"
           >
-            YOUR-EMAIL-HERE
-          </a>
-
-
-
-          <div class="socials">
-
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-            >
-              Instagram ↗
-            </a>
-
-
-            <a
-              href="https://soundcloud.com/juliarakel"
-              target="_blank"
-              rel="noopener"
-            >
-              SoundCloud ↗
-            </a>
-
-          </div>
-
+            Email me
+          </button>
 
         </div>
 
@@ -1210,6 +1178,10 @@
 
 
 <script>
+
+  /* =========================
+     SOUNDCLOUD
+  ========================= */
 
   const soundcloudButtons =
     document.querySelectorAll(".soundcloud-button");
@@ -1367,6 +1339,9 @@
   });
 
 
+  /* =========================
+     YOUTUBE + SPOTIFY
+  ========================= */
 
   const simpleButtons =
     document.querySelectorAll(".simple-toggle");
@@ -1421,6 +1396,37 @@
     );
 
   });
+
+
+  /* =========================
+     EMAIL / LIGHT SPAM PROTECTION
+
+     The complete email address is not written
+     directly into the HTML.
+  ========================= */
+
+  const emailButton =
+    document.getElementById("email-button");
+
+
+  emailButton.addEventListener(
+    "click",
+    function() {
+
+      const user =
+        "julia.ojbrandt";
+
+      const domain =
+        "gmail.com";
+
+      const address =
+        user + "@" + domain;
+
+      window.location.href =
+        "mailto:" + address;
+
+    }
+  );
 
 </script>
 
