@@ -13,14 +13,14 @@
 
   <meta
     name="description"
-    content="Julia Rakel — artist, composer, songwriter and sound designer based in Skåne, Sweden."
+    content="Julia Rakel — artist, songwriter, composer and sound designer based in Skåne, Sweden."
   >
 
 
   <style>
 
     /* =========================================================
-       BASIC
+       VARIABLES
     ========================================================= */
 
     :root {
@@ -32,6 +32,11 @@
       --max-width: 1280px;
     }
 
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -68,6 +73,11 @@
     img {
       display: block;
       max-width: 100%;
+    }
+
+
+    button {
+      font-family: inherit;
     }
 
 
@@ -115,7 +125,7 @@
 
 
     nav a {
-      opacity: 0.68;
+      opacity: 0.65;
       transition: opacity 0.2s ease;
     }
 
@@ -168,12 +178,13 @@
 
 
     .hero-intro {
-      max-width: 460px;
-      margin-top: 46px;
+      max-width: 470px;
+
+      margin-top: 45px;
 
       font-size: 19px;
       line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
     }
 
 
@@ -202,7 +213,6 @@
 
     section {
       padding: 105px 0;
-
       border-top: 1px solid var(--line);
     }
 
@@ -212,7 +222,6 @@
       grid-template-columns: 180px 1fr;
 
       gap: 40px;
-
       margin-bottom: 70px;
     }
 
@@ -252,8 +261,7 @@
 
 
     .project {
-      padding: 34px 0;
-
+      padding: 35px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -263,8 +271,8 @@
 
       grid-template-columns:
         55px
-        minmax(260px, 1fr)
-        minmax(260px, 1fr)
+        minmax(250px, 1fr)
+        minmax(250px, 1fr)
         auto;
 
       gap: 25px;
@@ -306,7 +314,7 @@
     .project-description {
       max-width: 460px;
 
-      padding-top: 4px;
+      padding-top: 3px;
 
       font-size: 14px;
       line-height: 1.45;
@@ -317,19 +325,17 @@
       appearance: none;
       -webkit-appearance: none;
 
+      padding: 11px 17px;
+
       border: 1px solid var(--text);
+      border-radius: 100px;
+
       background: transparent;
       color: var(--text);
 
-      padding: 11px 16px;
-
-      border-radius: 100px;
-
       cursor: pointer;
 
-      font: inherit;
       font-size: 9px;
-
       text-transform: uppercase;
       letter-spacing: 0.11em;
 
@@ -353,13 +359,13 @@
     .project-media {
       display: none;
 
+      max-width: 900px;
+
       margin:
         30px
         0
         5px
         80px;
-
-      max-width: 900px;
     }
 
 
@@ -368,32 +374,62 @@
     }
 
 
-    .soundcloud-frame,
-    .spotify-frame {
+    .soundcloud-player {
+      width: 100%;
+    }
+
+
+    .soundcloud-player iframe {
       display: block;
 
-      width: 100%;
+      width: 100% !important;
 
-      border: 0;
-      border-radius: 4px;
+      border: none !important;
     }
 
 
-    .soundcloud-frame {
-      height: 166px;
+    .loading {
+      padding: 24px;
+
+      border: 1px solid var(--line);
+
+      color: var(--muted);
+
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
 
-    .spotify-frame {
-      height: 152px;
+    .embed-error {
+      padding: 25px;
+
+      border: 1px solid var(--line);
+
+      font-size: 13px;
+      line-height: 1.5;
     }
 
+
+    .embed-error a {
+      display: inline-block;
+
+      margin-top: 15px;
+
+      border-bottom: 1px solid var(--text);
+    }
+
+
+
+    /* =========================================================
+       YOUTUBE
+    ========================================================= */
 
     .youtube-wrap {
       width: 100%;
       aspect-ratio: 16 / 9;
 
-      background: #000;
+      background: black;
     }
 
 
@@ -401,7 +437,21 @@
       width: 100%;
       height: 100%;
 
-      border: 0;
+      border: none;
+    }
+
+
+
+    /* =========================================================
+       SPOTIFY
+    ========================================================= */
+
+    .spotify-frame {
+      width: 100%;
+      height: 152px;
+
+      border: none;
+      border-radius: 12px;
     }
 
 
@@ -506,7 +556,6 @@
       color: var(--muted);
 
       font-size: 10px;
-
       text-transform: uppercase;
       letter-spacing: 0.12em;
     }
@@ -579,6 +628,7 @@
 
       .hero-intro {
         margin-top: 35px;
+
         font-size: 17px;
       }
 
@@ -590,6 +640,7 @@
 
       .section-heading {
         grid-template-columns: 1fr;
+
         gap: 18px;
 
         margin-bottom: 45px;
@@ -597,13 +648,17 @@
 
 
       .project-main {
-        grid-template-columns: 35px 1fr;
+        grid-template-columns:
+          35px
+          1fr;
+
         gap: 15px;
       }
 
 
       .project-description {
         grid-column: 2;
+
         margin-top: 5px;
       }
 
@@ -618,18 +673,19 @@
 
 
       .project-media {
+        width: calc(100% - 50px);
+
         margin:
           25px
           0
           0
           50px;
-
-        width: calc(100% - 50px);
       }
 
 
       .about-grid {
         grid-template-columns: 1fr;
+
         gap: 20px;
       }
 
@@ -647,675 +703,895 @@
     }
 
   </style>
+
 </head>
 
 
 
 <body>
 
-  <div class="page">
+<div class="page">
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-    <header>
+  <header>
 
-      <a
-        class="logo"
-        href="#top"
-      >
-        Julia Rakel
+    <a
+      class="logo"
+      href="#top"
+    >
+      Julia Rakel
+    </a>
+
+
+    <nav>
+
+      <a href="#work">
+        Work
       </a>
 
+      <a href="#about">
+        About
+      </a>
 
-      <nav>
+      <a href="#contact">
+        Contact
+      </a>
 
-        <a href="#work">
-          Work
-        </a>
+    </nav>
 
-        <a href="#about">
-          About
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
-      </nav>
-
-    </header>
+  </header>
 
 
 
-    <main id="top">
+  <main id="top">
 
 
-      <!-- ===================================================
-           HERO
-      ==================================================== -->
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
 
-      <section
-        class="hero"
-        style="border-top: none;"
-      >
-
-        <div>
-
-          <div class="eyebrow">
-            Artist · Songwriter · Composer · Sound Designer
-          </div>
+    <section
+      class="hero"
+      style="border-top: none;"
+    >
 
 
-          <h1>
-            Julia<br>
-            Rakel
-          </h1>
+      <div>
 
-
-          <p class="hero-intro">
-            Music and sound —
-            from songs and stage
-            to animation, audio walks and radio.
-          </p>
-
+        <div class="eyebrow">
+          Artist · Songwriter · Composer · Sound Designer
         </div>
 
 
-        <div class="hero-image">
+        <h1>
+          Julia<br>
+          Rakel
+        </h1>
 
-          <img
-            src="Juliarrakelbild.jpg"
-            alt="Julia Rakel"
+
+        <p class="hero-intro">
+          Music and sound —
+          from songs and stage
+          to animation, audio walks and radio.
+        </p>
+
+      </div>
+
+
+
+      <div class="hero-image">
+
+        <img
+          src="Juliarrakelbild.jpg"
+          alt="Julia Rakel"
+        >
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ===================================================
+         WORK
+    ==================================================== -->
+
+    <section id="work">
+
+
+      <div class="section-heading">
+
+        <div class="section-label">
+          01 / Selected work
+        </div>
+
+
+        <h2 class="section-title">
+          Music & sound
+        </h2>
+
+      </div>
+
+
+
+      <div class="projects">
+
+
+        <!-- ===============================================
+             01 MOTTAGNING
+        ================================================ -->
+
+        <article class="project">
+
+          <div class="project-main">
+
+
+            <div class="project-number">
+              01
+            </div>
+
+
+            <div>
+
+              <div class="project-title">
+                Mottagning för magiska besvär
+              </div>
+
+              <div class="project-role">
+                Music & QLab programming
+              </div>
+
+            </div>
+
+
+            <div class="project-description">
+              Original music and QLab programming for
+              <em>Mottagning för magiska besvär</em>,
+              produced by CRUSH.
+            </div>
+
+
+            <button
+              class="media-toggle soundcloud-button"
+
+              data-target="media-1"
+
+              data-url="https://soundcloud.com/juliarakel/sets/mottagning-for-magiska-besvar-ett-urval/s-y7PwE53Rm15?si=5bce8cfc550f418e848287d2922e359b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+
+              data-height="300"
+            >
+              Listen ↓
+            </button>
+
+
+          </div>
+
+
+
+          <div
+            class="project-media"
+            id="media-1"
           >
 
-        </div>
+            <div class="soundcloud-player"></div>
 
-      </section>
-
-
-
-      <!-- ===================================================
-           WORK
-      ==================================================== -->
-
-      <section id="work">
-
-
-        <div class="section-heading">
-
-          <div class="section-label">
-            01 / Selected work
           </div>
 
 
-          <h2 class="section-title">
-            Music & sound
-          </h2>
-
-        </div>
+        </article>
 
 
 
-        <div class="projects">
+        <!-- ===============================================
+             02 TEARS OF MALMÖ
+        ================================================ -->
+
+        <article class="project">
+
+          <div class="project-main">
 
 
-          <!-- ===============================================
-               PROJECT 01
-          ================================================ -->
-
-          <article class="project">
-
-            <div class="project-main">
+            <div class="project-number">
+              02
+            </div>
 
 
-              <div class="project-number">
-                01
+            <div>
+
+              <div class="project-title">
+                Tears of Malmö
               </div>
 
-
-              <div>
-
-                <div class="project-title">
-                  Mottagning för magiska besvär
-                </div>
-
-                <div class="project-role">
-                  Music & QLab programming
-                </div>
-
+              <div class="project-role">
+                Original music
               </div>
-
-
-              <div class="project-description">
-                Original music and QLab programming for
-                <em>Mottagning för magiska besvär</em>,
-                produced by CRUSH.
-              </div>
-
-
-              <button
-                class="media-toggle"
-                data-target="media-1"
-              >
-                Listen ↓
-              </button>
 
             </div>
 
 
+            <div class="project-description">
+              Original music for
+              <em>Tears of Malmö</em>,
+              an audio walk produced by
+              Malmö Stadsteater and collaborators.
+            </div>
 
-            <div
-              class="project-media"
-              id="media-1"
+
+            <button
+              class="media-toggle soundcloud-button"
+
+              data-target="media-2"
+
+              data-url="https://soundcloud.com/juliarakel/sets/tears-of-malmo-ett-urval/s-jnJvF4EgYc4?si=38e094b3d8e1499ea0bcfdffe74dc942&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+
+              data-height="300"
             >
-
-              <iframe
-                class="soundcloud-frame"
-                scrolling="no"
-                allow="autoplay"
-                title="Mottagning för magiska besvär"
-                src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjuliarakel%2Fsets%2Fmottagning-for-magiska-besvar-ett-urval%2Fs-y7PwE53Rm15&color=%23181816&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
-              ></iframe>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- ===============================================
-               PROJECT 02
-          ================================================ -->
-
-          <article class="project">
-
-            <div class="project-main">
-
-
-              <div class="project-number">
-                02
-              </div>
-
-
-              <div>
-
-                <div class="project-title">
-                  Tears of Malmö
-                </div>
-
-                <div class="project-role">
-                  Original music
-                </div>
-
-              </div>
-
-
-              <div class="project-description">
-                Original music for
-                <em>Tears of Malmö</em>,
-                an audio walk produced by
-                Malmö Stadsteater and collaborators.
-              </div>
-
-
-              <button
-                class="media-toggle"
-                data-target="media-2"
-              >
-                Listen ↓
-              </button>
-
-            </div>
-
-
-
-            <div
-              class="project-media"
-              id="media-2"
-            >
-
-              <iframe
-                class="soundcloud-frame"
-                scrolling="no"
-                allow="autoplay"
-                title="Tears of Malmö"
-                src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjuliarakel%2Fsets%2Ftears-of-malmo-ett-urval%2Fs-jnJvF4EgYc4&color=%23181816&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
-              ></iframe>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- ===============================================
-               PROJECT 03
-          ================================================ -->
-
-          <article class="project">
-
-            <div class="project-main">
-
-
-              <div class="project-number">
-                03
-              </div>
-
-
-              <div>
-
-                <div class="project-title">
-                  Drifters
-                </div>
-
-                <div class="project-role">
-                  Music & sound design
-                </div>
-
-              </div>
-
-
-              <div class="project-description">
-                Original music and sound design for
-                <em>Drifters</em>,
-                an animated short series produced by
-                FX Network.
-              </div>
-
-
-              <button
-                class="media-toggle"
-                data-target="media-3"
-              >
-                Listen ↓
-              </button>
-
-            </div>
-
-
-
-            <div
-              class="project-media"
-              id="media-3"
-            >
-
-              <iframe
-                class="soundcloud-frame"
-                scrolling="no"
-                allow="autoplay"
-                title="Drifters"
-                src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjuliarakel%2Fdrifters-theme%2Fs-i000gCiifx7&color=%23181816&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
-              ></iframe>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- ===============================================
-               PROJECT 04
-          ================================================ -->
-
-          <article class="project">
-
-            <div class="project-main">
-
-
-              <div class="project-number">
-                04
-              </div>
-
-
-              <div>
-
-                <div class="project-title">
-                  Black Death
-                </div>
-
-                <div class="project-role">
-                  Sound design
-                </div>
-
-              </div>
-
-
-              <div class="project-description">
-                Sound design for
-                <em>Black Death</em>,
-                an animated short series produced by
-                FX Network.
-              </div>
-
-
-              <button
-                class="media-toggle"
-                data-target="media-4"
-              >
-                Watch ↓
-              </button>
-
-            </div>
-
-
-
-            <div
-              class="project-media"
-              id="media-4"
-            >
-
-              <div class="youtube-wrap">
-
-                <iframe
-                  src="https://www.youtube.com/embed/qrtBWscxtEM"
-                  title="Black Death"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- ===============================================
-               PROJECT 05
-          ================================================ -->
-
-          <article class="project">
-
-            <div class="project-main">
-
-
-              <div class="project-number">
-                05
-              </div>
-
-
-              <div>
-
-                <div class="project-title">
-                  P3 Historia
-                </div>
-
-                <div class="project-role">
-                  Music & sound design
-                </div>
-
-              </div>
-
-
-              <div class="project-description">
-                Music and sound design for
-                <em>P3 Historia</em>,
-                produced by Munck Studios for
-                Sveriges Radio.
-              </div>
-
-
-              <button
-                class="media-toggle"
-                data-target="media-5"
-              >
-                Listen ↓
-              </button>
-
-            </div>
-
-
-
-            <div
-              class="project-media"
-              id="media-5"
-            >
-
-              <iframe
-                class="spotify-frame"
-                src="https://open.spotify.com/embed/episode/1fEFfepe3lWyL3wF3tKtB9"
-                title="P3 Historia"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              ></iframe>
-
-            </div>
-
-          </article>
-
-
-        </div>
-
-      </section>
-
-
-
-      <!-- ===================================================
-           ABOUT
-      ==================================================== -->
-
-      <section id="about">
-
-
-        <div class="section-heading">
-
-          <div class="section-label">
-            02 / About
-          </div>
-
-
-          <h2 class="section-title">
-            About
-          </h2>
-
-        </div>
-
-
-
-        <div class="about-grid">
-
-          <div></div>
-
-
-          <div class="about-copy">
-
-
-            <p class="about-large">
-              Julia Rakel is an artist,
-              songwriter, composer and
-              sound designer based in
-              Skåne, Sweden.
-            </p>
-
-
-            <p class="about-small">
-              Her work moves between music,
-              sound design and storytelling,
-              across recorded music, theatre,
-              animation, radio and other forms.
-            </p>
+              Listen ↓
+            </button>
 
 
           </div>
 
-        </div>
-
-      </section>
 
 
+          <div
+            class="project-media"
+            id="media-2"
+          >
 
-      <!-- ===================================================
-           CONTACT
-      ==================================================== -->
+            <div class="soundcloud-player"></div>
 
-      <section
-        id="contact"
-        class="contact-section"
-      >
-
-
-        <div>
-
-          <div class="section-label">
-            03 / Contact
           </div>
 
+
+        </article>
+
+
+
+        <!-- ===============================================
+             03 DRIFTERS
+        ================================================ -->
+
+        <article class="project">
+
+          <div class="project-main">
+
+
+            <div class="project-number">
+              03
+            </div>
+
+
+            <div>
+
+              <div class="project-title">
+                Drifters
+              </div>
+
+              <div class="project-role">
+                Music & sound design
+              </div>
+
+            </div>
+
+
+            <div class="project-description">
+              Original music and sound design for
+              <em>Drifters</em>,
+              an animated short series produced by
+              FX Network.
+            </div>
+
+
+            <button
+              class="media-toggle soundcloud-button"
+
+              data-target="media-3"
+
+              data-url="https://soundcloud.com/juliarakel/drifters-theme/s-i000gCiifx7?si=8a51963edff848c9a0ca47a2ad93e94e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+
+              data-height="166"
+            >
+              Listen ↓
+            </button>
+
+
+          </div>
+
+
+
+          <div
+            class="project-media"
+            id="media-3"
+          >
+
+            <div class="soundcloud-player"></div>
+
+          </div>
+
+
+        </article>
+
+
+
+        <!-- ===============================================
+             04 BLACK DEATH
+        ================================================ -->
+
+        <article class="project">
+
+          <div class="project-main">
+
+
+            <div class="project-number">
+              04
+            </div>
+
+
+            <div>
+
+              <div class="project-title">
+                Black Death
+              </div>
+
+              <div class="project-role">
+                Sound design
+              </div>
+
+            </div>
+
+
+            <div class="project-description">
+              Sound design for
+              <em>Black Death</em>,
+              an animated short series produced by
+              FX Network.
+            </div>
+
+
+            <button
+              class="media-toggle simple-toggle"
+              data-target="media-4"
+            >
+              Watch ↓
+            </button>
+
+
+          </div>
+
+
+
+          <div
+            class="project-media"
+            id="media-4"
+          >
+
+            <div class="youtube-wrap">
+
+              <iframe
+                src="https://www.youtube.com/embed/qrtBWscxtEM"
+                title="Black Death"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+
+            </div>
+
+          </div>
+
+
+        </article>
+
+
+
+        <!-- ===============================================
+             05 P3 HISTORIA
+        ================================================ -->
+
+        <article class="project">
+
+          <div class="project-main">
+
+
+            <div class="project-number">
+              05
+            </div>
+
+
+            <div>
+
+              <div class="project-title">
+                P3 Historia
+              </div>
+
+              <div class="project-role">
+                Music & sound design
+              </div>
+
+            </div>
+
+
+            <div class="project-description">
+              Music and sound design for
+              <em>P3 Historia</em>,
+              produced by Munck Studios for
+              Sveriges Radio.
+            </div>
+
+
+            <button
+              class="media-toggle simple-toggle"
+              data-target="media-5"
+            >
+              Listen ↓
+            </button>
+
+
+          </div>
+
+
+
+          <div
+            class="project-media"
+            id="media-5"
+          >
+
+            <iframe
+              class="spotify-frame"
+
+              src="https://open.spotify.com/embed/episode/1fEFfepe3lWyL3wF3tKtB9"
+
+              title="P3 Historia"
+
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+
+              loading="lazy"
+            ></iframe>
+
+          </div>
+
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         ABOUT
+    ==================================================== -->
+
+    <section id="about">
+
+
+      <div class="section-heading">
+
+        <div class="section-label">
+          02 / About
         </div>
 
 
+        <h2 class="section-title">
+          About
+        </h2>
 
-        <div>
-
-
-          <h2 class="contact-title">
-            Let's make<br>
-            something<br>
-            sound.
-          </h2>
+      </div>
 
 
 
-          <div class="contact-bottom">
+      <div class="about-grid">
 
 
-            <!--
-              BYT YOUR-EMAIL-HERE MOT DIN RIKTIGA MAIL
-              PÅ BÅDA STÄLLENA NEDAN.
-            -->
+        <div></div>
+
+
+        <div class="about-copy">
+
+
+          <p class="about-large">
+            Julia Rakel is an artist,
+            songwriter, composer and
+            sound designer based in
+            Skåne, Sweden.
+          </p>
+
+
+          <p class="about-small">
+            Her work moves between music,
+            sound design and storytelling,
+            across recorded music, theatre,
+            animation, radio and other forms.
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTACT
+    ==================================================== -->
+
+    <section
+      id="contact"
+      class="contact-section"
+    >
+
+
+      <div>
+
+        <div class="section-label">
+          03 / Contact
+        </div>
+
+      </div>
+
+
+
+      <div>
+
+
+        <h2 class="contact-title">
+          Let's make<br>
+          something<br>
+          sound.
+        </h2>
+
+
+
+        <div class="contact-bottom">
+
+
+          <!-- BYT UT MAILADRESSEN HÄR -->
+
+          <a
+            class="contact-email"
+            href="mailto:YOUR-EMAIL-HERE"
+          >
+            YOUR-EMAIL-HERE
+          </a>
+
+
+
+          <div class="socials">
+
+
+            <!-- BYT # MOT INSTAGRAM-LÄNK -->
 
             <a
-              class="contact-email"
-              href="mailto:YOUR-EMAIL-HERE"
+              href="#"
+              target="_blank"
+              rel="noopener"
             >
-              YOUR-EMAIL-HERE
+              Instagram ↗
             </a>
 
 
+            <a
+              href="https://soundcloud.com/juliarakel"
+              target="_blank"
+              rel="noopener"
+            >
+              SoundCloud ↗
+            </a>
 
-            <div class="socials">
-
-
-              <!--
-                Instagram:
-                byt # mot din riktiga Instagram-länk
-              -->
-
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener"
-              >
-                Instagram ↗
-              </a>
-
-
-
-              <a
-                href="https://soundcloud.com/juliarakel"
-                target="_blank"
-                rel="noopener"
-              >
-                SoundCloud ↗
-              </a>
-
-
-            </div>
 
           </div>
 
+
         </div>
 
-      </section>
+
+      </div>
 
 
-    </main>
+    </section>
 
 
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer>
-
-      <span>
-        © Julia Rakel
-      </span>
-
-      <span>
-        Skåne, Sweden
-      </span>
-
-    </footer>
-
-
-  </div>
+  </main>
 
 
 
   <!-- =====================================================
-       JAVASCRIPT
-       Makes Listen / Watch buttons open and close players
+       FOOTER
   ====================================================== -->
 
-  <script>
+  <footer>
 
-    const buttons =
-      document.querySelectorAll(".media-toggle");
+    <span>
+      © Julia Rakel
+    </span>
 
+    <span>
+      Skåne, Sweden
+    </span>
 
-    buttons.forEach(function(button) {
-
-      button.addEventListener(
-        "click",
-        function() {
-
-          const targetId =
-            button.getAttribute("data-target");
-
-          const media =
-            document.getElementById(targetId);
-
-          const isOpen =
-            media.classList.contains("open");
+  </footer>
 
 
-          if (isOpen) {
+</div>
 
-            media.classList.remove("open");
 
-            if (
-              button.textContent.includes("Watch")
-            ) {
-              button.textContent = "Watch ↓";
-            } else {
-              button.textContent = "Listen ↓";
-            }
 
-          } else {
+<!-- =======================================================
+     JAVASCRIPT
+======================================================== -->
 
-            media.classList.add("open");
+<script>
 
-            if (
-              button.textContent.includes("Watch")
-            ) {
-              button.textContent = "Close ↑";
-            } else {
-              button.textContent = "Close ↑";
-            }
+
+  /* -------------------------------------------------------
+     SOUNDCLOUD
+
+     Instead of manually constructing SoundCloud iframe URLs,
+     we ask SoundCloud's official oEmbed service for the
+     correct embed code using the original shared URL.
+  ------------------------------------------------------- */
+
+
+  const soundcloudButtons =
+    document.querySelectorAll(".soundcloud-button");
+
+
+  soundcloudButtons.forEach(function(button) {
+
+
+    button.addEventListener(
+      "click",
+      async function() {
+
+
+        const targetId =
+          button.dataset.target;
+
+
+        const originalUrl =
+          button.dataset.url;
+
+
+        const requestedHeight =
+          button.dataset.height || "166";
+
+
+        const media =
+          document.getElementById(targetId);
+
+
+        const player =
+          media.querySelector(".soundcloud-player");
+
+
+        const alreadyOpen =
+          media.classList.contains("open");
+
+
+
+        /* CLOSE */
+
+        if (alreadyOpen) {
+
+          media.classList.remove("open");
+
+          button.textContent =
+            "Listen ↓";
+
+          return;
+        }
+
+
+
+        /* OPEN */
+
+        media.classList.add("open");
+
+        button.textContent =
+          "Close ↑";
+
+
+
+        /* DON'T LOAD TWICE */
+
+        if (
+          player.dataset.loaded === "true"
+        ) {
+          return;
+        }
+
+
+
+        player.innerHTML =
+          '<div class="loading">Loading player…</div>';
+
+
+
+        try {
+
+
+          const endpoint =
+            "https://soundcloud.com/oembed" +
+            "?format=json" +
+            "&url=" +
+            encodeURIComponent(originalUrl) +
+            "&maxwidth=900" +
+            "&maxheight=" +
+            encodeURIComponent(requestedHeight) +
+            "&color=181816";
+
+
+          const response =
+            await fetch(endpoint);
+
+
+          if (!response.ok) {
+            throw new Error(
+              "SoundCloud returned an error."
+            );
+          }
+
+
+          const data =
+            await response.json();
+
+
+
+          if (!data.html) {
+            throw new Error(
+              "No embed code received."
+            );
+          }
+
+
+
+          player.innerHTML =
+            data.html;
+
+
+          const iframe =
+            player.querySelector("iframe");
+
+
+          if (iframe) {
+
+            iframe.style.width =
+              "100%";
+
+            iframe.style.maxWidth =
+              "100%";
+
+            iframe.style.border =
+              "0";
+
+          }
+
+
+          player.dataset.loaded =
+            "true";
+
+
+        }
+
+
+        catch (error) {
+
+
+          console.error(
+            "SoundCloud embed error:",
+            error
+          );
+
+
+          player.innerHTML = `
+
+            <div class="embed-error">
+
+              The embedded player could not be loaded.
+
+              <br>
+
+              <a
+                href="${originalUrl}"
+                target="_blank"
+                rel="noopener"
+              >
+                Listen on SoundCloud ↗
+              </a>
+
+            </div>
+
+          `;
+
+        }
+
+
+      }
+    );
+
+
+  });
+
+
+
+  /* -------------------------------------------------------
+     YOUTUBE + SPOTIFY
+  ------------------------------------------------------- */
+
+
+  const simpleButtons =
+    document.querySelectorAll(".simple-toggle");
+
+
+  simpleButtons.forEach(function(button) {
+
+
+    button.addEventListener(
+      "click",
+      function() {
+
+
+        const targetId =
+          button.dataset.target;
+
+
+        const media =
+          document.getElementById(targetId);
+
+
+        const open =
+          media.classList.toggle("open");
+
+
+        if (open) {
+
+          button.textContent =
+            "Close ↑";
+
+        }
+
+
+        else {
+
+          if (
+            targetId === "media-4"
+          ) {
+
+            button.textContent =
+              "Watch ↓";
+
+          }
+
+
+          else {
+
+            button.textContent =
+              "Listen ↓";
 
           }
 
         }
-      );
 
-    });
 
-  </script>
+      }
+    );
+
+
+  });
+
+
+</script>
 
 
 </body>
